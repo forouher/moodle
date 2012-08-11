@@ -2634,6 +2634,7 @@ function print_my_moodle() {
         unset($course);
         unset($host);
 
+/*
         if ($DB->count_records("course") > (count($courses) + 1) ) {  // Some courses not being displayed
             echo "<table width=\"100%\"><tr><td align=\"center\">";
             print_course_search("", false, "short");
@@ -2641,7 +2642,7 @@ function print_my_moodle() {
             echo $OUTPUT->single_button("$CFG->wwwroot/course/index.php", get_string("fulllistofcourses"), "get");
             echo "</td></tr></table>\n";
         }
-
+*/
     } else {
         if ($DB->count_records("course_categories") > 1) {
             echo $OUTPUT->box_start("categorybox");
@@ -2655,46 +2656,7 @@ function print_my_moodle() {
 
 
 function print_course_search($value="", $return=false, $format="plain") {
-    global $CFG;
-    static $count = 0;
-
-    $count++;
-
-    $id = 'coursesearch';
-
-    if ($count > 1) {
-        $id .= $count;
-    }
-
-    $strsearchcourses= get_string("searchcourses");
-
-    if ($format == 'plain') {
-        $output  = '<form id="'.$id.'" action="'.$CFG->wwwroot.'/course/search.php" method="get">';
-        $output .= '<fieldset class="coursesearchbox invisiblefieldset">';
-        $output .= '<label for="coursesearchbox">'.$strsearchcourses.': </label>';
-        $output .= '<input type="text" id="coursesearchbox" size="30" name="search" value="'.s($value).'" />';
-        $output .= '<input type="submit" value="'.get_string('go').'" />';
-        $output .= '</fieldset></form>';
-    } else if ($format == 'short') {
-        $output  = '<form id="'.$id.'" action="'.$CFG->wwwroot.'/course/search.php" method="get">';
-        $output .= '<fieldset class="coursesearchbox invisiblefieldset">';
-        $output .= '<label for="shortsearchbox">'.$strsearchcourses.': </label>';
-        $output .= '<input type="text" id="shortsearchbox" size="12" name="search" alt="'.s($strsearchcourses).'" value="'.s($value).'" />';
-        $output .= '<input type="submit" value="'.get_string('go').'" />';
-        $output .= '</fieldset></form>';
-    } else if ($format == 'navbar') {
-        $output  = '<form id="coursesearchnavbar" action="'.$CFG->wwwroot.'/course/search.php" method="get">';
-        $output .= '<fieldset class="coursesearchbox invisiblefieldset">';
-        $output .= '<label for="navsearchbox">'.$strsearchcourses.': </label>';
-        $output .= '<input type="text" id="navsearchbox" size="20" name="search" alt="'.s($strsearchcourses).'" value="'.s($value).'" />';
-        $output .= '<input type="submit" value="'.get_string('go').'" />';
-        $output .= '</fieldset></form>';
-    }
-
-    if ($return) {
-        return $output;
-    }
-    echo $output;
+    echo "";
 }
 
 function print_remote_course($course, $width="100%") {
