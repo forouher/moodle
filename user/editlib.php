@@ -198,6 +198,10 @@ function useredit_shared_definition(&$mform, $editoroptions = null, $filemanager
         $mform->addElement('select', 'theme', get_string('preferredtheme'), $choices);
     }
 
+    $mform->addElement('editor', 'description_editor', get_string('userdescription'), null, $editoroptions);
+    $mform->setType('description_editor', PARAM_CLEANHTML);
+    $mform->addHelpButton('description_editor', 'userdescription');
+
     if (empty($USER->newadminuser)) {
         $mform->addElement('header', 'moodle_picture', get_string('pictureofuser'));
 
