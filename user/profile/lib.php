@@ -385,7 +385,6 @@ function profile_definition($mform, $userid = 0) {
 
                 // display the header and the fields
                 if ($display or $update) {
-                    $mform->addElement('header', 'category_'.$category->id, format_string($category->name));
                     foreach ($fields as $field) {
                         require_once($CFG->dirroot.'/user/profile/field/'.$field->datatype.'/field.class.php');
                         $newfield = 'profile_field_'.$field->datatype;
