@@ -43,6 +43,7 @@ if ($categoryid) {
 }
 
 $PAGE->set_pagelayout('coursecategory');
+$PAGE->navbar->add($category->name);
 $courserenderer = $PAGE->get_renderer('core', 'course');
 
 if ($CFG->forcelogin) {
