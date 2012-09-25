@@ -210,6 +210,7 @@ if ($editingon && can_edit_in_category()) {
     $PAGE->set_heading($site->fullname);
     $PAGE->set_button(print_course_search('', true, 'navbar'));
     $PAGE->set_pagelayout('coursecategory');
+    $PAGE->navbar->add($category->name);
     echo $OUTPUT->header();
 }
 
